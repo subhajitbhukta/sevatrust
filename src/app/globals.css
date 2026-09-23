@@ -149,16 +149,19 @@
   transition-duration: 150ms;
 }
 
-/* Hero gradient utility */
-.hero-gradient {
-  background: linear-gradient(135deg, oklch(0.45 0.12 165 / 0.95) 0%, oklch(0.35 0.10 180 / 0.90) 50%, oklch(0.30 0.08 200 / 0.85) 100%);
+/* Hero gradient utility — Tailwind v4 @utility directive */
+@utility hero-gradient {
+  background-image: linear-gradient(135deg, #0f766e 0%, #115e59 50%, #134e4a 100%);
+  background-color: #0f766e;
 }
 
-.warm-gradient {
-  background: linear-gradient(135deg, oklch(0.95 0.04 75) 0%, oklch(0.92 0.06 65) 100%);
+@utility warm-gradient {
+  background-image: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background-color: #fef3c7;
 }
 
-.pattern-bg {
-  background-image: radial-gradient(oklch(0.45 0.12 165 / 0.05) 1px, transparent 1px);
+@utility pattern-bg {
+  background-image: radial-gradient(rgba(15, 118, 110, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+/* force recompile */
