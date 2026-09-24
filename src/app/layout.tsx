@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BHARATI BANERJEE MEMORIAL WELFARE TRUST",
     description: "Serving Humanity, Building Hope — A grassroots movement for lasting change.",
-    url: "https://ananyaseva.org",
+    url: "https://bharatibanrjeememowelfaretrust.org",
     siteName: "BHARATI BANERJEE MEMORIAL WELFARE TRUST",
     type: "website",
   },

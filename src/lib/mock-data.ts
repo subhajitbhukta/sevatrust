@@ -35,8 +35,8 @@ export const TRUST_INFO = {
   pan: "AABTA1234N",
   address: "12, Seva Marg, Andheri West, Mumbai, Maharashtra 400058",
   phone: "+91 98765 43210",
-  email: "info@ananyaseva.org",
-  website: "www.ananyaseva.org",
+  email: "info@bharatibanrjeememowelfaretrust.org",
+  website: "www.bharatibanrjeememowelfaretrust.org",
   vision:
     "To build a compassionate and inclusive society where every individual has access to education, healthcare, dignity, and opportunity — regardless of background, gender, or economic status.",
   mission:
@@ -248,14 +248,14 @@ export const AUDIT_LOGS: AuditLog[] = [
 ];
 
 export const USERS: UserAccount[] = [
-  { id: "USR-001", name: "Dr. Rajesh Mehta", email: "rajesh@ananyaseva.org", role: "Super Admin", status: "Active", lastLogin: "2026-09-22 9:00 AM" },
-  { id: "USR-002", name: "Mrs. Kavita Shah", email: "kavita@ananyaseva.org", role: "Trust Admin", status: "Active", lastLogin: "2026-09-23 11:42 AM" },
-  { id: "USR-003", name: "Mr. Ramesh Iyer", email: "ramesh@ananyaseva.org", role: "Trust Admin", status: "Active", lastLogin: "2026-09-23 10:15 AM" },
-  { id: "USR-004", name: "Dr. Anil Kumar", email: "anil@ananyaseva.org", role: "Project Manager", status: "Active", lastLogin: "2026-09-22 4:30 PM" },
-  { id: "USR-005", name: "Mrs. Sunita Patil", email: "sunita@ananyaseva.org", role: "Project Manager", status: "Active", lastLogin: "2026-09-21 3:45 PM" },
-  { id: "USR-006", name: "Deepika Reddy", email: "deepika@ananyaseva.org", role: "Volunteer Coordinator", status: "Active", lastLogin: "2026-09-20 5:10 PM" },
-  { id: "USR-007", name: "Content Manager", email: "content@ananyaseva.org", role: "Content Manager", status: "Active", lastLogin: "2026-09-10 11:00 AM" },
-  { id: "USR-008", name: "CA Accountant", email: "accounts@ananyaseva.org", role: "Accounts", status: "Active", lastLogin: "2026-09-21 5:00 PM" },
+  { id: "USR-001", name: "Dr. Rajesh Mehta", email: "rajesh@bharatibanrjeememowelfaretrust.org", role: "Super Admin", status: "Active", lastLogin: "2026-09-22 9:00 AM" },
+  { id: "USR-002", name: "Mrs. Kavita Shah", email: "kavita@bharatibanrjeememowelfaretrust.org", role: "Trust Admin", status: "Active", lastLogin: "2026-09-23 11:42 AM" },
+  { id: "USR-003", name: "Mr. Ramesh Iyer", email: "ramesh@bharatibanrjeememowelfaretrust.org", role: "Trust Admin", status: "Active", lastLogin: "2026-09-23 10:15 AM" },
+  { id: "USR-004", name: "Dr. Anil Kumar", email: "anil@bharatibanrjeememowelfaretrust.org", role: "Project Manager", status: "Active", lastLogin: "2026-09-22 4:30 PM" },
+  { id: "USR-005", name: "Mrs. Sunita Patil", email: "sunita@bharatibanrjeememowelfaretrust.org", role: "Project Manager", status: "Active", lastLogin: "2026-09-21 3:45 PM" },
+  { id: "USR-006", name: "Deepika Reddy", email: "deepika@bharatibanrjeememowelfaretrust.org", role: "Volunteer Coordinator", status: "Active", lastLogin: "2026-09-20 5:10 PM" },
+  { id: "USR-007", name: "Content Manager", email: "content@bharatibanrjeememowelfaretrust.org", role: "Content Manager", status: "Active", lastLogin: "2026-09-10 11:00 AM" },
+  { id: "USR-008", name: "CA Accountant", email: "accounts@bharatibanrjeememowelfaretrust.org", role: "Accounts", status: "Active", lastLogin: "2026-09-21 5:00 PM" },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
