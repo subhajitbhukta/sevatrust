@@ -1,0 +1,122 @@
+/* ===========================================================
+   Trust Management Platform — Deck-wide stylesheet
+   Editorial Emerald & Gold theme
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Palette — Emerald & Gold */
+  --bg: #fefcf7;            /* warm off-white */
+  --bg-deep: #0f766e;       /* deep emerald (dark sections) */
+  --bg-deep-2: #134e4a;     /* darker emerald */
+  --primary: #0f766e;       /* deep emerald */
+  --primary-light: #14b8a6; /* teal */
+  --primary-dark: #134e4a;  /* darker teal */
+  --accent: #d97706;        /* warm gold */
+  --accent-light: #f59e0b;  /* amber */
+  --accent-soft: #fef3c7;   /* cream highlight */
+  --ink: #1c1917;           /* warm black */
+  --ink-soft: #44403c;      /* warm gray */
+  --muted: #78716c;         /* muted gray */
+  --line: #e7e5e4;          /* hairline */
+  --card: #ffffff;          /* card surface */
+  --card-border: #f5f5f4;
+
+  /* Typography tokens */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-num: 'Inter', 'JetBrains Mono', monospace;
+
+  --fs-display: 76px;
+  --fs-h1: 52px;
+  --fs-h2: 38px;
+  --fs-h3: 26px;
+  --fs-body: 17px;
+  --fs-small: 14px;
+  --fs-micro: 11px;
+}
+
+/* Slide canvas — every page is exactly 1280 × 720 */
+.slide {
+  width: 1280px;
+  min-height: 720px;
+  max-height: 720px;
+  height: 720px;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  position: relative;
+  box-sizing: border-box;
+}
+
+html, body { overflow: hidden; margin: 0; padding: 0; }
+
+/* Dark emerald variant for cover/closing/section dividers */
+.slide-dark {
+  background: linear-gradient(135deg, #0f766e 0%, #134e4a 60%, #0c3a36 100%);
+  color: #fefcf7;
+}
+
+/* Card surface */
+.surface {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(15, 118, 110, 0.04), 0 8px 24px -12px rgba(15, 118, 110, 0.12);
+}
+
+.surface-soft {
+  background: var(--accent-soft);
+  border: 1px solid #fde68a;
+  border-radius: 14px;
+}
+
+/* Accent emphasis */
+.accent-bar {
+  display: inline-block;
+  width: 44px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.accent-text { color: var(--accent); }
+.primary-text { color: var(--primary); }
+.muted-text { color: var(--muted); }
+.ink-soft { color: var(--ink-soft); }
+
+/* Page chrome (optional, used by body slides) */
+.page-meta {
+  position: absolute;
+  bottom: 28px;
+  left: 64px;
+  right: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.slide-dark .page-meta { color: rgba(254, 252, 247, 0.55); }
+
+/* Decorative dot pattern for dark slides */
+.dot-pattern {
+  background-image: radial-gradient(rgba(254, 252, 247, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Number badge */
+.num-badge {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent);
+}

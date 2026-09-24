@@ -1,0 +1,238 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>Platform Architecture at a Glance</title>
+  <link rel="stylesheet" href="global.css">
+  <script src="https://artifacts-cdn.chatglm.site/https://cdn.tailwindcss.com" data-z-original-src="https://cdn.tailwindcss.com"></script>
+  <link href="https://artifacts-cdn.chatglm.site/https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" data-z-original-href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    html, body { overflow: hidden; }
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #d97706;
+    }
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 46px;
+      line-height: 1.1;
+      letter-spacing: -0.012em;
+      color: #1c1917;
+    }
+    .sub-headline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 20px;
+      color: #44403c;
+      max-width: 820px;
+      line-height: 1.4;
+    }
+    .top-accent-gold {
+      height: 4px;
+      width: 100%;
+      background: #d97706;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+    }
+    .top-accent-emerald {
+      height: 4px;
+      width: 100%;
+      background: #0f766e;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+    }
+    .big-num-gold {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 90px;
+      color: #d97706;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .big-num-emerald {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 90px;
+      color: #0f766e;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .num-label-gold {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #d97706;
+    }
+    .num-label-emerald {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #0f766e;
+    }
+    .col-headline {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 26px;
+      color: #1c1917;
+      letter-spacing: -0.005em;
+    }
+    .col-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #44403c;
+      line-height: 1.55;
+    }
+    .page-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #1c1917;
+      padding: 7px 11px;
+      background: #fafaf9;
+      border-radius: 8px;
+      border: 1px solid #e7e5e4;
+    }
+    .em-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #0f766e;
+      flex-shrink: 0;
+    }
+    .group-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #d97706;
+    }
+    .group-modules {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #44403c;
+      line-height: 1.5;
+      margin-top: 3px;
+    }
+    .icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-circle.gold {
+      background: rgba(217, 119, 6, 0.10);
+      color: #d97706;
+    }
+    .icon-circle.emerald {
+      background: rgba(15, 118, 110, 0.10);
+      color: #0f766e;
+    }
+  </style>
+</head>
+<body class="slide">
+  <div class="relative h-full w-full" style="padding: 48px 64px 64px 64px;">
+    <!-- Header -->
+    <div class="mb-5">
+      <div class="eyebrow mb-2">02 · ARCHITECTURE</div>
+      <h1 class="headline">One platform, two surfaces, twenty modules</h1>
+      <p class="sub-headline mt-2">A public website for outreach and an admin console for operations — built on the same data, governed by the same roles.</p>
+    </div>
+
+    <!-- Two columns -->
+    <div class="grid grid-cols-2" style="gap: 28px; margin-top: 18px;">
+      <!-- LEFT: Public Website -->
+      <div class="surface" style="overflow: hidden; display: flex; flex-direction: column;">
+        <div class="top-accent-gold"></div>
+        <div style="padding: 24px 26px;">
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <div class="big-num-gold">10</div>
+              <div class="num-label-gold mt-2">PUBLIC PAGES</div>
+            </div>
+            <div class="icon-circle gold">
+              <i class="material-icons" style="font-size: 22px;">public</i>
+            </div>
+          </div>
+          <h2 class="col-headline mb-2">Public Website</h2>
+          <p class="col-desc mb-4">The donor, beneficiary, and partner front door — campaigns, donations, stories, transparency, and contact in one place.</p>
+          <div class="grid grid-cols-2" style="gap: 7px;">
+            <div class="page-pill"><span class="em-dot"></span>Home</div>
+            <div class="page-pill"><span class="em-dot"></span>About</div>
+            <div class="page-pill"><span class="em-dot"></span>Activities</div>
+            <div class="page-pill"><span class="em-dot"></span>Campaigns</div>
+            <div class="page-pill"><span class="em-dot"></span>Donate</div>
+            <div class="page-pill"><span class="em-dot"></span>Sponsorship</div>
+            <div class="page-pill"><span class="em-dot"></span>Gallery</div>
+            <div class="page-pill"><span class="em-dot"></span>News</div>
+            <div class="page-pill"><span class="em-dot"></span>Transparency</div>
+            <div class="page-pill"><span class="em-dot"></span>Contact</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Admin Console -->
+      <div class="surface" style="overflow: hidden; display: flex; flex-direction: column;">
+        <div class="top-accent-emerald"></div>
+        <div style="padding: 24px 26px;">
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <div class="big-num-emerald">20</div>
+              <div class="num-label-emerald mt-2">ADMIN MODULES</div>
+            </div>
+            <div class="icon-circle emerald">
+              <i class="material-icons" style="font-size: 22px;">dashboard</i>
+            </div>
+          </div>
+          <h2 class="col-headline mb-2">Admin Console</h2>
+          <p class="col-desc mb-4">The operational brain — activities, beneficiaries, donations, finance, content, certificates, audit, and roles in one governed workspace.</p>
+          <div class="space-y-2.5">
+            <div>
+              <div class="group-label">PROGRAMS</div>
+              <div class="group-modules">Activities · Beneficiaries · Events · Volunteers</div>
+            </div>
+            <div>
+              <div class="group-label">FUNDRAISING</div>
+              <div class="group-modules">Donations · Campaigns · Sponsorships · CSR · Grants</div>
+            </div>
+            <div>
+              <div class="group-label">FINANCE</div>
+              <div class="group-modules">Expenses</div>
+            </div>
+            <div>
+              <div class="group-label">CONTENT</div>
+              <div class="group-modules">News · Gallery · Documents · Certificates</div>
+            </div>
+            <div>
+              <div class="group-label">ADMIN</div>
+              <div class="group-modules">Enquiries · Notifications · Users · Audit · Settings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page meta -->
+    <div class="page-meta">
+      <span>Trust Management Platform · 03 / 08</span>
+      <span>Board Briefing · Sep 2026</span>
+    </div>
+  </div>
+
+
+</body></html>

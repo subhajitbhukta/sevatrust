@@ -1,0 +1,338 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>Public Website — Client &amp; Donor Connectivity</title>
+  <link rel="stylesheet" href="global.css">
+  <script src="https://artifacts-cdn.chatglm.site/https://cdn.tailwindcss.com" data-z-original-src="https://cdn.tailwindcss.com"></script>
+  <link href="https://artifacts-cdn.chatglm.site/https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" data-z-original-href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #d97706;
+    }
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 1.1;
+      letter-spacing: -0.012em;
+      color: #1c1917;
+    }
+    .sub-line {
+      font-family: 'Inter', sans-serif;
+      font-style: italic;
+      font-size: 15px;
+      color: #44403c;
+      max-width: 760px;
+      line-height: 1.5;
+    }
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 14px;
+      height: 100%;
+    }
+    .cell {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .cell .top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cell-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #d97706;
+    }
+    .cell-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: #1c1917;
+      line-height: 1.2;
+      letter-spacing: -0.005em;
+      margin-top: 8px;
+    }
+    .cell-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #44403c;
+      line-height: 1.45;
+      margin-top: 6px;
+    }
+    .icon-square {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon-square.gold { background: rgba(217, 119, 6, 0.10); color: #d97706; }
+    .icon-square.emerald { background: rgba(15, 118, 110, 0.10); color: #0f766e; }
+    /* Donate hero cell */
+    .donate-hero {
+      grid-column: 1 / span 2;
+      grid-row: 1 / span 1;
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1.5px solid #d97706;
+      box-shadow: 0 1px 2px rgba(217, 119, 6, 0.08), 0 12px 28px -14px rgba(217, 119, 6, 0.35);
+    }
+    .donate-hero .cell-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: #1c1917;
+    }
+    .donate-hero .cell-desc {
+      font-size: 14px;
+      color: #44403c;
+    }
+    .donate-hero .icon-square.gold {
+      width: 40px;
+      height: 40px;
+      background: rgba(217, 119, 6, 0.18);
+      color: #b45309;
+    }
+    .must-have-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #d97706;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .summary-cell {
+      background: #0f766e;
+      color: #fefcf7;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 14px;
+      border: 1px solid #0f766e;
+    }
+    .summary-cell .summary-num {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 44px;
+      color: #fbbf24;
+      line-height: 0.95;
+    }
+    .summary-cell .summary-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(254, 252, 247, 0.75);
+      margin-top: 4px;
+    }
+    .summary-cell .summary-tag {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: rgba(254, 252, 247, 0.85);
+      line-height: 1.3;
+    }
+    .summary-cell .monogram-sm {
+      width: 26px;
+      height: 26px;
+      border: 1px solid rgba(251, 191, 36, 0.55);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 11px;
+      color: #fbbf24;
+    }
+  </style>
+</head>
+<body class="slide">
+  <div class="relative h-full w-full" style="padding: 40px 56px 56px 56px;">
+    <!-- Header (compact) -->
+    <div class="mb-3">
+      <div class="flex items-baseline justify-between">
+        <div>
+          <div class="eyebrow mb-2">03 · PUBLIC WEBSITE</div>
+          <h1 class="headline">Ten pages, one front door for every stakeholder</h1>
+        </div>
+        <div style="text-align: right; padding-top: 6px;">
+          <div style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; font-size: 32px; color: #d97706; line-height: 1;">10</div>
+          <div style="font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #78716c; margin-top: 4px;">PUBLIC PAGES</div>
+        </div>
+      </div>
+      <p class="sub-line mt-2">Every page is engineered for a single stakeholder job — from making a 60-second donation to verifying a 80G receipt by QR code.</p>
+    </div>
+
+    <!-- Bento grid -->
+    <div class="bento" style="height: 460px; margin-top: 14px;">
+
+      <!-- HERO: Donate (cols 1-2 row 1) -->
+      <div class="cell donate-hero">
+        <div class="top-row">
+          <div class="icon-square gold">
+            <i class="material-icons" style="font-size: 24px;">favorite</i>
+          </div>
+          <span class="must-have-badge"><i class="material-icons" style="font-size: 11px;">bolt</i>DONOR · MUST-HAVE</span>
+        </div>
+        <div>
+          <h3 class="cell-title">Donate Now</h3>
+          <p class="cell-desc">Three-step flow — donor info, UPI/Card/Net Banking, instant 80G PDF receipt in under 60 seconds.</p>
+        </div>
+      </div>
+
+      <!-- Home -->
+      <div class="cell surface">
+        <div class="top-row">
+          <div class="icon-square gold"><i class="material-icons" style="font-size: 20px;">home</i></div>
+          <div class="cell-tag">PUBLIC</div>
+        </div>
+        <div>
+          <h3 class="cell-title">Home</h3>
+          <p class="cell-desc">Hero, impact stats, active campaigns, latest news, and testimonials in one scroll.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="cell surface">
+        <div class="top-row">
+          <div class="icon-square gold"><i class="material-icons" style="font-size: 20px;">info</i></div>
+          <div class="cell-tag">PUBLIC</div>
+        </div>
+        <div>
+          <h3 class="cell-title">About the Trust</h3>
+          <p class="cell-desc">History, trustees, advisory council, organisation structure, registration details.</p>
+        </div>
+      </div>
+
+      <!-- Activities -->
+      <div class="cell surface">
+        <div class="top-row">
+          <div class="icon-square emerald"><i class="material-icons" style="font-size: 20px;">volunteer_activism</i></div>
+          <div class="cell-tag" style="color: #0f766e;">BENEFICIARY</div>
+        </div>
+        <div>
+          <h3 class="cell-title">Activities &amp; Projects</h3>
+          <p class="cell-desc">Filterable project catalogue across 10 categories with impact metrics.</p>
+        </div>
+      </div>
+
+      <!-- Campaigns -->
+      <div class="cell surface">
+        <div class="top-row">
+          <div class="icon-square gold"><i class="material-icons" style="font-size: 20px;">flag</i></div>
+          <div class="cell-tag">DONOR</div>
+        </div>
+        <div>
+          <h3 class="cell-title">Campaigns</h3>
+          <p class="cell-desc">Active fundraising campaigns with live progress bars and donate CTAs.</p>
+        </div>
+      </div>
+
+      <!-- Sponsorship -->
+      <div class="cell surface">
+        <div class="top-row">
+          <div class="icon-square gold"><i class="material-icons" style="font-size: 20px;">handshake</i></div>
+          <div class="cell-tag">DONOR</div>
+        </div>
+        <div>
+          <h3 class="cell-title">Sponsorship</h3>
+          <p class="cell-desc">Six recurring sponsorship tiers — child, education, food, medical, event, equipment.</p>
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <div class="cell surface">
+        <div class="top-row">
+          <div class="icon-square emerald"><i class="material-icons" style="font-size: 20px;">photo_library</i></div>
+          <div class="cell-tag">PUBLIC</div>
+        </div>
+        <div>
+          <h3 class="cell-title">Gallery</h3>
+          <p class="cell-desc">Photo and video albums with lightbox, filterable by activity and event.</p>
+        </div>
+      </div>
+
+      <!-- News -->
+      <div class="cell surface">
+        <div class="top-row">
+          <div class="icon-square gold"><i class="material-icons" style="font-size: 20px;">newspaper</i></div>
+          <div class="cell-tag">PUBLIC</div>
+        </div>
+        <div>
+          <h3 class="cell-title">News &amp; Updates</h3>
+          <p class="cell-desc">Featured article plus filterable news grid with categories and author bylines.</p>
+        </div>
+      </div>
+
+      <!-- Transparency -->
+      <div class="cell surface">
+        <div class="top-row">
+          <div class="icon-square emerald"><i class="material-icons" style="font-size: 20px;">verified</i></div>
+          <div class="cell-tag">DONOR · PUBLIC</div>
+        </div>
+        <div>
+          <h3 class="cell-title">Transparency</h3>
+          <p class="cell-desc">Live charts, annual reports, audited financials, and downloadable certificates.</p>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="cell surface">
+        <div class="top-row">
+          <div class="icon-square gold"><i class="material-icons" style="font-size: 20px;">mail</i></div>
+          <div class="cell-tag">PARTNER · PUBLIC</div>
+        </div>
+        <div>
+          <h3 class="cell-title">Contact</h3>
+          <p class="cell-desc">Categorised enquiry form routing to the right team within 24 hours.</p>
+        </div>
+      </div>
+
+      <!-- Decorative summary anchor -->
+      <div class="summary-cell" data-decor="">
+        <div class="top-row">
+          <div class="monogram-sm">AST</div>
+          <i class="material-icons" style="font-size: 16px; color: #fbbf24;">favorite</i>
+        </div>
+        <div>
+          <div class="summary-num">1</div>
+          <div class="summary-label">FRONT DOOR</div>
+          <div class="summary-tag mt-2" style="margin-top: 6px;">One platform, ten purpose-built pages.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Page meta footer -->
+    <div class="page-meta">
+      <span>Public Website · 10 Pages</span>
+      <span>04 / 08</span>
+    </div>
+  </div>
+
+
+</body></html>
