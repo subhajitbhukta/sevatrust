@@ -14,23 +14,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ananya Seva Trust — Serving Humanity, Building Hope",
+  title: "BHARATI BANERJEE MEMORIAL WELFARE TRUST — Serving Humanity, Building Hope",
   description: "A registered non-profit organization working since 2009 to uplift underprivileged communities across India through education, healthcare, women empowerment, and rural development programs.",
   keywords: ["NGO", "Trust", "Charity", "Donation", "Education", "Healthcare", "Women Empowerment", "Rural Development", "India"],
-  authors: [{ name: "Ananya Seva Trust" }],
+  authors: [{ name: "BHARATI BANERJEE MEMORIAL WELFARE TRUST" }],
   icons: {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
   },
   openGraph: {
-    title: "Ananya Seva Trust",
+    title: "BHARATI BANERJEE MEMORIAL WELFARE TRUST",
     description: "Serving Humanity, Building Hope — A grassroots movement for lasting change.",
     url: "https://ananyaseva.org",
-    siteName: "Ananya Seva Trust",
+    siteName: "BHARATI BANERJEE MEMORIAL WELFARE TRUST",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ananya Seva Trust",
+    title: "BHARATI BANERJEE MEMORIAL WELFARE TRUST",
     description: "Serving Humanity, Building Hope",
   },
 };

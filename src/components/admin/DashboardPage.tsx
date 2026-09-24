@@ -76,7 +76,7 @@ export function DashboardPage() {
                 Welcome back, Dr. Rajesh 👋
               </h2>
               <p className="text-primary-foreground/80 mt-1 text-sm">
-                Here's what's happening at {IMPACT_STATS.yearsOfService ? "Ananya Seva Trust" : "the Trust"} today.
+                Here's what's happening at {IMPACT_STATS.yearsOfService ? "BHARATI BANERJEE MEMORIAL WELFARE TRUST" : "the Trust"} today.
               </p>
             </div>
             <div className="flex gap-2">

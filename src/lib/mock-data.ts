@@ -28,7 +28,7 @@ const photo = (id: number, w = 800, h = 600) =>
   `https://picsum.photos/seed/trust-${id}/${w}/${h}`;
 
 export const TRUST_INFO = {
-  name: "Ananya Seva Trust",
+  name: "BHARATI BANERJEE MEMORIAL WELFARE TRUST",
   tagline: "Serving Humanity, Building Hope",
   established: "2009",
   registrationNo: "REG/2009/0447/MUM",
@@ -42,7 +42,7 @@ export const TRUST_INFO = {
   mission:
     "We work at the grassroots level to uplift underprivileged communities through sustainable programs in education, healthcare, women empowerment, and rural development. Our approach combines immediate relief with long-term capacity building, ensuring that every rupee contributed creates lasting impact in the lives of those we serve.",
   about:
-    "Founded in 2009 by a small group of educators, doctors, and social workers, Ananya Seva Trust began as a single classroom for ten children in a Mumbai slum. Over fifteen years, we have grown into a recognized non-profit organization working across Maharashtra, Gujarat, and Rajasthan, directly impacting more than 1.2 lakh beneficiaries through over 480 community programs.",
+    "Founded in 2009 by a small group of educators, doctors, and social workers, BHARATI BANERJEE MEMORIAL WELFARE TRUST began as a single classroom for ten children in a Mumbai slum. Over fifteen years, we have grown into a recognized non-profit organization working across Maharashtra, Gujarat, and Rajasthan, directly impacting more than 1.2 lakh beneficiaries through over 480 community programs.",
   objectives: [
     "Provide free and quality education to children from economically weaker sections",
     "Deliver accessible primary healthcare to rural and tribal communities",
@@ -54,7 +54,7 @@ export const TRUST_INFO = {
   history:
     "The Trust was formally registered on 14 August 2009 under the Bombay Public Trusts Act, 1950. What began with a single classroom of ten children has, over fifteen years, expanded into 24 active project sites across three Indian states. Our journey includes milestones such as the 2014 launch of the Mobile Medical Unit program, the 2018 establishment of the Women's Skill Centre in Pune, and the 2022 introduction of digital learning labs in rural schools. Each phase of growth has been guided by community needs and a commitment to measurable, transparent outcomes.",
   legalInfo:
-    "Ananya Seva Trust is registered under the Bombay Public Trusts Act, 1950 (Registration No. REG/2009/0447/MUM) and under Section 12A of the Income Tax Act, 1961. Donations are exempt under Section 80G of the Income Tax Act. The Trust is also registered under Section 11 and accredited by Guidestar India (Platinum level) and Credibility Alliance.",
+    "BHARATI BANERJEE MEMORIAL WELFARE TRUST is registered under the Bombay Public Trusts Act, 1950 (Registration No. REG/2009/0447/MUM) and under Section 12A of the Income Tax Act, 1961. Donations are exempt under Section 80G of the Income Tax Act. The Trust is also registered under Section 11 and accredited by Guidestar India (Platinum level) and Credibility Alliance.",
 };
 
 export const TRUSTEES: Trustee[] = [
@@ -189,7 +189,7 @@ export const EXPENSES: Expense[] = [
 ];
 
 export const NEWS_ITEMS: NewsItem[] = [
-  { id: "NWS-001", title: "Trust awarded Guidestar Platinum transparency rating", category: "Achievement", date: "2026-09-20", excerpt: "Ananya Seva Trust received the highest transparency rating from Guidestar India for the third consecutive year.", content: "This recognition reflects our continued commitment to transparency, accountability, and good governance. The Platinum rating is awarded to NGOs that publish comprehensive information about their operations, finances, and impact.", cover: photo(22), author: "Communications Team" },
+  { id: "NWS-001", title: "Trust awarded Guidestar Platinum transparency rating", category: "Achievement", date: "2026-09-20", excerpt: "BHARATI BANERJEE MEMORIAL WELFARE TRUST received the highest transparency rating from Guidestar India for the third consecutive year.", content: "This recognition reflects our continued commitment to transparency, accountability, and good governance. The Platinum rating is awarded to NGOs that publish comprehensive information about their operations, finances, and impact.", cover: photo(22), author: "Communications Team" },
   { id: "NWS-002", title: "Mobile Medical Unit completes 100 camps", category: "Achievement", date: "2026-09-15", excerpt: "Our flagship healthcare program reached a milestone of 100 medical camps across tribal Maharashtra.", content: "Since its launch in 2014, the Mobile Medical Unit has provided free primary healthcare to over 38,000 patients in remote tribal regions. The 100th camp was held at Palghar on September 12, 2026.", cover: photo(23), author: "Dr. Anil Kumar" },
   { id: "NWS-003", title: "Annual Report 2025-26 now available", category: "Announcement", date: "2026-09-10", excerpt: "We have published our annual report detailing all activities, financials, and impact metrics.", content: "The 2025-26 Annual Report includes a comprehensive review of our programs, audited financial statements, beneficiary stories, and future plans. Download the report from the Transparency section.", cover: photo(24), author: "Mrs. Kavita Shah" },
   { id: "NWS-004", title: "Partnership with TCS for digital literacy", category: "Press Release", date: "2026-09-05", excerpt: "TCS has committed ₹5 lakh to expand our digital literacy workshops in rural Maharashtra.", content: "The partnership will enable us to train an additional 500 rural youth in basic computer skills and internet safety over the next 12 months.", cover: photo(25), author: "Mr. Ramesh Iyer" },
@@ -259,7 +259,7 @@ export const USERS: UserAccount[] = [
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
-  { id: "T1", name: "Sneha Patil", role: "Beneficiary — Mid-day Meal Program", quote: "My daughter now eats a healthy meal at school every day. Her attendance and grades have improved so much. Thank you Ananya Seva Trust!", rating: 5 },
+  { id: "T1", name: "Sneha Patil", role: "Beneficiary — Mid-day Meal Program", quote: "My daughter now eats a healthy meal at school every day. Her attendance and grades have improved so much. Thank you BHARATI BANERJEE MEMORIAL WELFARE TRUST!", rating: 5 },
   { id: "T2", name: "Lakshmi Devi", role: "Beneficiary — Tailoring Training", quote: "After my husband passed away, I had no income. The Trust trained me and gave me a sewing machine. Today I support my family independently.", rating: 5 },
   { id: "T3", name: "Sandeep Gupta", role: "Sponsor", quote: "The transparency and impact reports I receive are excellent. I can see exactly how my sponsorship is changing a child's life.", rating: 5 },
   { id: "T4", name: "Dr. Pooja Deshmukh", role: "Volunteer — Doctor", quote: "Volunteering with the medical camps has been the most fulfilling experience of my career. The team is professional and dedicated.", rating: 5 },
