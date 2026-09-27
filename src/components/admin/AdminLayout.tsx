@@ -154,12 +154,10 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     <div className="flex h-full flex-col bg-sidebar">
       {/* Logo */}
       <div className="flex h-16 items-center gap-2.5 border-b border-sidebar-border px-4">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sidebar-primary text-sidebar-primary-foreground">
-          <HeartIcon className="h-4 w-4" fill="currentColor" />
-        </div>
+        <img src="/logo.svg" alt="BBMWT Logo" className="h-9 w-9" />
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-bold text-sidebar-foreground truncate">{TRUST_INFO.name}</p>
-          <p className="text-[10px] text-muted-foreground">Admin Console</p>
+          <p className="text-sm font-bold text-sidebar-foreground truncate">BBMWT</p>
+          <p className="text-[10px] text-muted-foreground">মানুষের পাশে, মানুষের জন্য ❤️</p>
         </div>
       </div>
 
@@ -219,10 +217,10 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
       <div className="border-t border-sidebar-border p-3">
         <div className="flex items-center gap-2 rounded-md p-2 hover:bg-sidebar-accent cursor-pointer">
           <Avatar className="h-8 w-8">
-            <AvatarFallback className="bg-primary/10 text-primary text-xs">RM</AvatarFallback>
+            <AvatarFallback className="bg-primary/10 text-primary text-xs">FT</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-medium text-sidebar-foreground truncate">Dr. Rajesh Mehta</p>
+            <p className="text-xs font-medium text-sidebar-foreground truncate">Founder Trustee</p>
             <p className="text-[10px] text-muted-foreground">Super Admin</p>
           </div>
           <button
@@ -311,7 +309,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <DropdownMenuTrigger asChild>
               <button className="flex items-center gap-2 rounded-full hover:bg-muted p-1 pr-2">
                 <Avatar className="h-8 w-8">
-                  <AvatarFallback className="bg-primary/10 text-primary text-xs">RM</AvatarFallback>
+                  <AvatarFallback className="bg-primary/10 text-primary text-xs">FT</AvatarFallback>
                 </Avatar>
                 <ChevronDown className="h-3 w-3 text-muted-foreground hidden md:block" />
               </button>

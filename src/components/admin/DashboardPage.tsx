@@ -73,10 +73,10 @@ export function DashboardPage() {
                 {new Date().toLocaleDateString("en-IN", { weekday: "long" })}
               </Badge>
               <h2 className="text-2xl md:text-3xl font-bold">
-                Welcome back, Dr. Rajesh 👋
+                Welcome back, Founder Trustee 👋
               </h2>
               <p className="text-primary-foreground/80 mt-1 text-sm">
-                Here's what's happening at {IMPACT_STATS.yearsOfService ? "Ananya Seva Trust" : "the Trust"} today.
+                Here's what's happening at Bharati Banerjee Memorial Welfare Trust today.
               </p>
             </div>
             <div className="flex gap-2">
