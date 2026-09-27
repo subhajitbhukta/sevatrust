@@ -46,34 +46,30 @@
 
 :root {
   --radius: 0.625rem;
-  /* Warm cream background — like hand-made paper */
+  /* Default = White-Orange theme (Bengali heritage maroon+saffron) */
   --background: oklch(0.99 0.008 70);
   --foreground: oklch(0.22 0.03 50);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.22 0.03 50);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.03 50);
-  /* Deep maroon primary — memorial, heritage, sacrifice */
   --primary: oklch(0.38 0.13 28);
   --primary-foreground: oklch(0.98 0.01 80);
-  /* Saffron-gold secondary — Bengal festive warmth */
   --secondary: oklch(0.92 0.05 70);
   --secondary-foreground: oklch(0.32 0.10 35);
   --muted: oklch(0.96 0.015 70);
   --muted-foreground: oklch(0.50 0.02 60);
-  /* Amber accent — light, hope, dawn */
   --accent: oklch(0.78 0.14 65);
   --accent-foreground: oklch(0.28 0.08 40);
   --destructive: oklch(0.58 0.22 27);
   --border: oklch(0.90 0.015 70);
   --input: oklch(0.92 0.015 70);
   --ring: oklch(0.55 0.13 30);
-  /* Chart colors — Bengali festive palette */
-  --chart-1: oklch(0.55 0.18 30);   /* maroon */
-  --chart-2: oklch(0.70 0.15 65);   /* saffron */
-  --chart-3: oklch(0.50 0.12 145);  /* forest green */
-  --chart-4: oklch(0.65 0.16 85);   /* gold */
-  --chart-5: oklch(0.60 0.10 320);  /* magenta */
+  --chart-1: oklch(0.55 0.18 30);
+  --chart-2: oklch(0.70 0.15 65);
+  --chart-3: oklch(0.50 0.12 145);
+  --chart-4: oklch(0.65 0.16 85);
+  --chart-5: oklch(0.60 0.10 320);
   --sidebar: oklch(0.97 0.015 60);
   --sidebar-foreground: oklch(0.22 0.03 50);
   --sidebar-primary: oklch(0.38 0.13 28);
@@ -82,6 +78,117 @@
   --sidebar-accent-foreground: oklch(0.32 0.10 35);
   --sidebar-border: oklch(0.90 0.015 70);
   --sidebar-ring: oklch(0.55 0.13 30);
+}
+
+/* === Theme: White-Orange (default, Bengali heritage) === */
+[data-theme="orange"] {
+  --background: oklch(0.99 0.008 70);
+  --foreground: oklch(0.22 0.03 50);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 50);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 50);
+  --primary: oklch(0.38 0.13 28);
+  --primary-foreground: oklch(0.98 0.01 80);
+  --secondary: oklch(0.92 0.05 70);
+  --secondary-foreground: oklch(0.32 0.10 35);
+  --muted: oklch(0.96 0.015 70);
+  --muted-foreground: oklch(0.50 0.02 60);
+  --accent: oklch(0.78 0.14 65);
+  --accent-foreground: oklch(0.28 0.08 40);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.90 0.015 70);
+  --input: oklch(0.92 0.015 70);
+  --ring: oklch(0.55 0.13 30);
+  --chart-1: oklch(0.55 0.18 30);
+  --chart-2: oklch(0.70 0.15 65);
+  --chart-3: oklch(0.50 0.12 145);
+  --chart-4: oklch(0.65 0.16 85);
+  --chart-5: oklch(0.60 0.10 320);
+  --sidebar: oklch(0.97 0.015 60);
+  --sidebar-foreground: oklch(0.22 0.03 50);
+  --sidebar-primary: oklch(0.38 0.13 28);
+  --sidebar-primary-foreground: oklch(0.98 0.01 80);
+  --sidebar-accent: oklch(0.92 0.05 70);
+  --sidebar-accent-foreground: oklch(0.32 0.10 35);
+  --sidebar-border: oklch(0.90 0.015 70);
+  --sidebar-ring: oklch(0.55 0.13 30);
+  --hero-grad: linear-gradient(135deg, #7c2d12 0%, #9a3412 45%, #c2410c 100%);
+  --hero-bg: #7c2d12;
+}
+
+/* === Theme: White-Blue (trust, professionalism) === */
+[data-theme="blue"] {
+  --background: oklch(0.99 0.005 240);
+  --foreground: oklch(0.20 0.02 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.02 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.02 250);
+  --primary: oklch(0.40 0.13 250);
+  --primary-foreground: oklch(0.99 0.005 240);
+  --secondary: oklch(0.93 0.03 230);
+  --secondary-foreground: oklch(0.30 0.08 240);
+  --muted: oklch(0.96 0.01 230);
+  --muted-foreground: oklch(0.50 0.02 240);
+  --accent: oklch(0.72 0.13 220);
+  --accent-foreground: oklch(0.25 0.08 240);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.90 0.015 230);
+  --input: oklch(0.92 0.015 230);
+  --ring: oklch(0.50 0.13 250);
+  --chart-1: oklch(0.50 0.18 250);
+  --chart-2: oklch(0.65 0.15 200);
+  --chart-3: oklch(0.55 0.15 280);
+  --chart-4: oklch(0.70 0.13 180);
+  --chart-5: oklch(0.60 0.18 330);
+  --sidebar: oklch(0.97 0.01 230);
+  --sidebar-foreground: oklch(0.20 0.02 250);
+  --sidebar-primary: oklch(0.40 0.13 250);
+  --sidebar-primary-foreground: oklch(0.99 0.005 240);
+  --sidebar-accent: oklch(0.93 0.03 230);
+  --sidebar-accent-foreground: oklch(0.30 0.08 240);
+  --sidebar-border: oklch(0.90 0.015 230);
+  --sidebar-ring: oklch(0.50 0.13 250);
+  --hero-grad: linear-gradient(135deg, #1e3a8a 0%, #1e40af 45%, #2563eb 100%);
+  --hero-bg: #1e3a8a;
+}
+
+/* === Theme: White-Green (growth, hope, environment) === */
+[data-theme="green"] {
+  --background: oklch(0.99 0.008 150);
+  --foreground: oklch(0.20 0.03 160);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.03 160);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.03 160);
+  --primary: oklch(0.40 0.11 160);
+  --primary-foreground: oklch(0.99 0.005 150);
+  --secondary: oklch(0.93 0.04 150);
+  --secondary-foreground: oklch(0.30 0.08 160);
+  --muted: oklch(0.96 0.015 150);
+  --muted-foreground: oklch(0.50 0.02 150);
+  --accent: oklch(0.75 0.13 130);
+  --accent-foreground: oklch(0.25 0.08 150);
+  --destructive: oklch(0.58 0.22 27);
+  --border: oklch(0.90 0.015 150);
+  --input: oklch(0.92 0.015 150);
+  --ring: oklch(0.50 0.11 160);
+  --chart-1: oklch(0.50 0.13 160);
+  --chart-2: oklch(0.65 0.15 130);
+  --chart-3: oklch(0.55 0.18 80);
+  --chart-4: oklch(0.70 0.12 180);
+  --chart-5: oklch(0.60 0.10 320);
+  --sidebar: oklch(0.97 0.015 150);
+  --sidebar-foreground: oklch(0.20 0.03 160);
+  --sidebar-primary: oklch(0.40 0.11 160);
+  --sidebar-primary-foreground: oklch(0.99 0.005 150);
+  --sidebar-accent: oklch(0.93 0.04 150);
+  --sidebar-accent-foreground: oklch(0.30 0.08 160);
+  --sidebar-border: oklch(0.90 0.015 150);
+  --sidebar-ring: oklch(0.50 0.11 160);
+  --hero-grad: linear-gradient(135deg, #14532d 0%, #166534 45%, #16a34a 100%);
+  --hero-bg: #14532d;
 }
 
 .dark {
@@ -143,19 +250,19 @@
   background: oklch(0.70 0.08 50);
 }
 
-/* Smooth transitions */
+/* Smooth transitions for theme switching */
 * {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 200ms;
 }
 
-/* === BBMWT brand utilities (Tailwind v4 @utility) === */
+/* === Brand utilities (Tailwind v4 @utility) === */
 
-/* Hero gradient — deep maroon to warm saffron (memorial + sunrise) */
+/* Hero gradient — uses theme's --hero-grad variable */
 @utility hero-gradient {
-  background-image: linear-gradient(135deg, #7c2d12 0%, #9a3412 45%, #c2410c 100%);
-  background-color: #7c2d12;
+  background-image: var(--hero-grad);
+  background-color: var(--hero-bg);
 }
 
 /* Warm cream gradient for CTA sections */
@@ -164,7 +271,7 @@
   background-color: #fef3c7;
 }
 
-/* Saffron gradient (for accents, donate buttons) */
+/* Saffron gradient (for donate buttons) */
 @utility saffron-gradient {
   background-image: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%);
   background-color: #ea580c;
@@ -197,3 +304,8 @@
   font-weight: 600;
   line-height: 1.4;
 }
+
+/* Theme swatch colors (for the selector UI) */
+.swatch-blue { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); }
+.swatch-orange { background: linear-gradient(135deg, #7c2d12 0%, #c2410c 100%); }
+.swatch-green { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }

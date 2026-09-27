@@ -146,7 +146,7 @@ export function HomePage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Shirt, title: isBn ? "শীতের উষ্ণতা" : "Winter Warmth", desc: isBn ? "বস্ত্র ও কম্বল বিতরণ" : "Clothes & blanket distribution", color: "bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300" },
+                { icon: Shirt, title: isBn ? "বস্ত্র বিতরণ" : "Clothes Distribution", desc: isBn ? "বছরজুড়ে শিশু ও পরিবারে বস্ত্র পৌঁছে দেওয়া" : "Year-round clothes for poor children & families", color: "bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300" },
                 { icon: TreePine, title: isBn ? "সবুজ সিঙ্গুর" : "Green Singur", desc: isBn ? "বৃক্ষরোপণ অভিযান" : "Tree plantation drives", color: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300" },
                 { icon: BookOpen, title: isBn ? "শিক্ষা সহায়তা" : "Education Support", desc: isBn ? "বই ও সামগ্রী বিতরণ" : "Books & supplies to children", color: "bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-300" },
                 { icon: Package, title: isBn ? "প্রয়োজনীয় সামগ্রী" : "Essentials", desc: isBn ? "খাদ্য ও দৈনন্দিন সামগ্রী" : "Food & daily-need items", color: "bg-lime-50 text-lime-700 dark:bg-lime-950/40 dark:text-lime-300" },

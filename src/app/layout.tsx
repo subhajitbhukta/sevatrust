@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Noto_Sans_Bengali, Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { ThemeInitializer } from "@/components/shared/ThemeInitializer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     title: "Bharati Banerjee Memorial Welfare Trust",
     description: "মানুষের পাশে, মানুষের জন্য ❤️ — Spreading humanity's message through small initiatives.",
     url: "https://www.facebook.com/profile.php?id=61594263927379",
-    siteName: "BBMWT",
+    siteName: "Bharati Banerjee Memorial Welfare Trust",
     type: "website",
   },
   twitter: {
@@ -57,9 +58,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="bn" suppressHydrationWarning>
+      <head>
+        {/* Apply theme before paint to prevent FOUC */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('bbmwt-theme');if(t!=='blue'&&t!=='orange'&&t!=='green'){t='orange';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','orange');}})();`,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansBengali.variable} ${notoSerifBengali.variable} antialiased bg-background text-foreground`}
       >
+        <ThemeInitializer />
         {children}
         <Toaster />
       </body>

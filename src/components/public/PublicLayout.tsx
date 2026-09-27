@@ -26,6 +26,7 @@ import { useAppStore } from "@/lib/store";
 import { TRUST_INFO } from "@/lib/mock-data";
 import type { PublicPage } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { ThemeSelector } from "@/components/shared/ThemeSelector";
 
 const NAV_ITEMS: { key: PublicPage; label: string; labelBn?: string }[] = [
   { key: "home", label: "Home", labelBn: "হোম" },
@@ -64,7 +65,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
               <MapPin className="h-3 w-3" /> Kamarkundu, Singur
             </span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <a
               href={TRUST_INFO.facebook}
               target="_blank"
@@ -85,6 +86,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
                 <SelectItem value="hi">हिन्दी</SelectItem>
               </SelectContent>
             </Select>
+            <ThemeSelector compact />
             <button
               onClick={() => setMode("admin")}
               className="flex items-center gap-1 hover:opacity-80 transition-opacity"
@@ -100,11 +102,11 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
           <button onClick={() => nav("home")} className="flex items-center gap-2.5">
-            <img src="/logo.svg" alt="BBMWT Logo" className="h-10 w-10" />
+            <img src="/logo.svg" alt="Logo" className="h-10 w-10 flex-shrink-0" />
             <div className="text-left">
-              <p className="text-sm font-bold leading-tight">BBMWT</p>
+              <p className="text-sm font-bold leading-tight">Bharati Banerjee</p>
               <p className="text-[10px] text-muted-foreground leading-tight">
-                {isBn ? "মানুষের পাশে, মানুষের জন্য ❤️" : "Bharati Banerjee Memorial Welfare Trust"}
+                {isBn ? "মানুষের পাশে, মানুষের জন্য ❤️" : "Memorial Welfare Trust"}
               </p>
             </div>
           </button>
@@ -140,7 +142,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
                 <div className="flex items-center justify-between px-2 py-2 mb-2">
                   <div className="flex items-center gap-2">
                     <img src="/logo.svg" alt="Logo" className="h-8 w-8" />
-                    <span className="font-bold">BBMWT</span>
+                    <span className="font-bold text-sm">Bharati Banerjee</span>
                   </div>
                 </div>
                 <nav className="flex flex-col gap-1 px-2">
@@ -176,16 +178,16 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="space-y-3">
               <div className="flex items-center gap-2.5">
-                <img src="/logo.svg" alt="BBMWT Logo" className="h-10 w-10" />
+                <img src="/logo.svg" alt="Logo" className="h-10 w-10" />
                 <div>
-                  <p className="font-bold">BBMWT</p>
-                  <p className="text-xs text-stone-400">মানুষের পাশে, মানুষের জন্য ❤️</p>
+                  <p className="font-bold leading-tight">Bharati Banerjee</p>
+                  <p className="text-[10px] text-stone-400">Memorial Welfare Trust</p>
                 </div>
               </div>
-              <p className="text-sm text-stone-400 leading-relaxed">
+              <p className="text-xs text-stone-400 leading-relaxed">
                 {isBn
-                  ? "ভারতী ব্যানার্জী মেমোরিয়াল ওয়েলফেয়ার ট্রাস্ট — সিঙ্গুর ও হুগলির গ্রামে মানবিকতার কাজ।"
-                  : "Bharati Banerjee Memorial Welfare Trust — community welfare initiatives across Singur and Hooghly, West Bengal."}
+                  ? "মানুষের পাশে, মানুষের জন্য ❤️ — সিঙ্গুর ও হুগলির গ্রামে মানবিকতার কাজ।"
+                  : "Beside people, for people ❤️ — community welfare initiatives across Singur and Hooghly, West Bengal."}
               </p>
               <div className="flex items-center gap-3 pt-1">
                 <a href={TRUST_INFO.facebook} target="_blank" rel="noopener noreferrer" className="rounded-full bg-stone-800 p-2 hover:bg-primary transition-colors" aria-label="Facebook">
@@ -222,8 +224,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-semibold mb-3">{isBn ? "কার্যক্রম" : "Our Programs"}</h4>
               <ul className="space-y-2 text-sm text-stone-400">
-                <li><button onClick={() => nav("activities")} className="hover:text-primary-foreground">{isBn ? "শীতের বস্ত্র বিতরণ" : "Winter Warmth Drive"}</button></li>
-                <li><button onClick={() => nav("activities")} className="hover:text-primary-foreground">{isBn ? "বৃক্ষরোপণ" : "Tree Plantation"}</button></li>
+                <li><button onClick={() => nav("activities")} className="hover:text-primary-foreground">{isBn ? "বস্ত্র বিতরণ" : "Clothes Distribution"}</button></li>
                 <li><button onClick={() => nav("activities")} className="hover:text-primary-foreground">{isBn ? "শিক্ষা সামগ্রী" : "Education Supplies"}</button></li>
                 <li><button onClick={() => nav("sponsorship")} className="hover:text-primary-foreground">{isBn ? "স্পন্সরশিপ" : "Sponsorship"}</button></li>
                 <li><button onClick={() => nav("campaigns")} className="hover:text-primary-foreground">{isBn ? "সক্রিয় ক্যাম্পেইন" : "Active Campaigns"}</button></li>
@@ -268,7 +269,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
 
       {/* Floating WhatsApp button */}
       <a
-        href={`https://wa.me/${TRUST_INFO.whatsapp}?text=${encodeURIComponent("Hello BBMWT team, I would like to know more about your welfare activities and how I can contribute.")}`}
+        href={`https://wa.me/${TRUST_INFO.whatsapp}?text=${encodeURIComponent("Hello, I would like to know more about the welfare activities of Bharati Banerjee Memorial Welfare Trust and how I can contribute.")}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg hover:bg-emerald-600 transition-colors wa-pulse"

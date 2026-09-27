@@ -50,6 +50,7 @@ import { useAppStore } from "@/lib/store";
 import { TRUST_INFO } from "@/lib/mock-data";
 import type { AdminPage } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { ThemeSelector } from "@/components/shared/ThemeSelector";
 
 interface NavItem {
   key: AdminPage;
@@ -154,9 +155,9 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     <div className="flex h-full flex-col bg-sidebar">
       {/* Logo */}
       <div className="flex h-16 items-center gap-2.5 border-b border-sidebar-border px-4">
-        <img src="/logo.svg" alt="BBMWT Logo" className="h-9 w-9" />
+        <img src="/logo.svg" alt="Logo" className="h-9 w-9 flex-shrink-0" />
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-bold text-sidebar-foreground truncate">BBMWT</p>
+          <p className="text-xs font-bold text-sidebar-foreground truncate">Bharati Banerjee</p>
           <p className="text-[10px] text-muted-foreground">মানুষের পাশে, মানুষের জন্য ❤️</p>
         </div>
       </div>
@@ -275,6 +276,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           </div>
 
           <div className="hidden md:flex items-center gap-2">
+            <ThemeSelector compact />
             <Button variant="outline" size="sm" onClick={() => setMode("public")}>
               <Globe className="mr-2 h-4 w-4" /> View Website
             </Button>
