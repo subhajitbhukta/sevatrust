@@ -102,7 +102,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4">
           <button onClick={() => nav("home")} className="flex items-center gap-2.5">
-            <img src="/logo.svg" alt="Logo" className="h-10 w-10 flex-shrink-0" />
+            <img src="/LOGO_BBMWT.png" alt="Logo" className="h-10 w-10 flex-shrink-0" />
             <div className="text-left">
               <p className="text-sm font-bold leading-tight">Bharati Banerjee</p>
               <p className="text-[10px] text-muted-foreground leading-tight">
@@ -141,7 +141,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
               <SheetContent side="right" className="w-[280px]">
                 <div className="flex items-center justify-between px-2 py-2 mb-2">
                   <div className="flex items-center gap-2">
-                    <img src="/logo.svg" alt="Logo" className="h-8 w-8" />
+                    <img src="/LOGO_BBMWT.png" alt="Logo" className="h-8 w-8" />
                     <span className="font-bold text-sm">Bharati Banerjee</span>
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="space-y-3">
               <div className="flex items-center gap-2.5">
-                <img src="/logo.svg" alt="Logo" className="h-10 w-10" />
+                <img src="/LOGO_BBMWT.png" alt="Logo" className="h-10 w-10" />
                 <div>
                   <p className="font-bold leading-tight">Bharati Banerjee</p>
                   <p className="text-[10px] text-stone-400">Memorial Welfare Trust</p>

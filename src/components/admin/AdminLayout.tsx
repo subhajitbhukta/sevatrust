@@ -155,7 +155,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
     <div className="flex h-full flex-col bg-sidebar">
       {/* Logo */}
       <div className="flex h-16 items-center gap-2.5 border-b border-sidebar-border px-4">
-        <img src="/logo.svg" alt="Logo" className="h-9 w-9 flex-shrink-0" />
+        <img src="/LOGO_BBMWT.png" alt="Logo" className="h-9 w-9 flex-shrink-0" />
         <div className="flex-1 min-w-0">
           <p className="text-xs font-bold text-sidebar-foreground truncate">Bharati Banerjee</p>
           <p className="text-[10px] text-muted-foreground">মানুষের পাশে, মানুষের জন্য ❤️</p>

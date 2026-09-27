@@ -78,7 +78,7 @@ export function Receipt80GDialog({ open, onOpenChange, data }: Receipt80GDialogP
           {/* Header with logo */}
           <div className="flex items-center justify-between pb-4 border-b-2 border-primary">
             <div className="flex items-center gap-3">
-              <img src="/logo.svg" alt="Logo" className="h-14 w-14" />
+              <img src="/LOGO_BBMWT.png" alt="Logo" className="h-14 w-14" />
               <div>
                 <h2 className="text-lg font-bold leading-tight">{TRUST_INFO.name}</h2>
                 <p className="text-xs text-muted-foreground">মানুষের পাশে, মানুষের জন্য ❤️</p>

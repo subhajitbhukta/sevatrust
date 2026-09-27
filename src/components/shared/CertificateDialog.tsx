@@ -77,7 +77,7 @@ export function CertificateDialog({ open, onOpenChange, data }: CertificateDialo
 
               {/* Header with logo and trust name */}
               <div className="flex flex-col items-center text-center mb-6">
-                <img src="/logo.svg" alt="Logo" className="h-20 w-20 mb-2" />
+                <img src="/LOGO_BBMWT.png" alt="Logo" className="h-20 w-20 mb-2" />
                 <h1 className="text-xl font-bold text-primary leading-tight">
                   {TRUST_INFO.name}
                 </h1>
