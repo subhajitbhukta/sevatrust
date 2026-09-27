@@ -31,17 +31,21 @@ const photo = (id: number, w = 800, h = 600) =>
 
 // Real activity photos from image-search results
 export const ACTIVITY_PHOTOS = {
-  clothesBlanket: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/aa9e25ff599d.jpg",
-  clothesDistribution: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/1e5c20ae7d78.jpeg",
-  treePlantation: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/aea8bfd9241a.jpg",
-  treePlantation2: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/208cc6ada9c0.png",
-  educationSupplies: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/2004de4e79fa.jpg",
-  educationSupplies2: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/d66038dd8bf9.jpg",
-  essentials: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/3da48a959e91.jpg",
-  womenWelfare: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/d53e8ad66cba.jpg",
-  community: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/07bfe7f3ebca.jpg",
-  reliefKit: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/58b0c9465397.jpg",
-  hero: "https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/aa9e25ff599d.jpg",
+  clothesBlanket: "/kambal.jpg",
+  clothesDistribution: "/kambal.jpg",
+
+  treePlantation: "/plant.jpg",
+  treePlantation2: "/plant.jpg",
+
+  educationSupplies: "/education.jpg",
+  educationSupplies2: "/education.jpg",
+
+  essentials: "/education.jpg",
+  womenWelfare: "/education.jpg",
+  community: "/plant.jpg",
+  reliefKit: "/kambal.jpg",
+
+  hero: "/LOGO_BBMWT.png",
 };
 
 export const TRUST_INFO = {
