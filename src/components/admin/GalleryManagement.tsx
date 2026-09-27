@@ -13,8 +13,11 @@ import { Image as ImageIcon2, Video as VideoIcon, FolderOpen, CheckCircle2 } fro
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { GALLERY_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function GalleryManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
   const [filter, setFilter] = useState<"all" | "Photo" | "Video">("all");
 
   const filtered = GALLERY_ITEMS.filter((g) => filter === "all" || g.type === filter);
@@ -29,7 +32,7 @@ export function GalleryManagement() {
             <Button variant="outline" onClick={() => toast({ title: "Bulk upload", description: "Drag-drop multiple photos/videos." })}>
               <Upload className="mr-2 h-4 w-4" /> Bulk Upload
             </Button>
-            <Button onClick={() => toast({ title: "Add gallery item" })}>
+            <Button onClick={() => setFormOpen(true)}>
               <Plus className="mr-2 h-4 w-4" /> Add Item
             </Button>
           </div>
@@ -88,6 +91,8 @@ export function GalleryManagement() {
           </Card>
         ))}
       </div>
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={GALLERY_FORM_SCHEMA} />
+</div>
   );
 }

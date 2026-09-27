@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Plus, Download, Upload, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,8 +11,11 @@ import type { Expense } from "@/lib/types";
 import { Receipt, TrendingUp, Building2, Wallet } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { EXPENSE_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function ExpenseManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const totalExpenses = EXPENSES.reduce((s, e) => s + e.amount, 0);
   const categories = Array.from(new Set(EXPENSES.map(e => e.category)));
@@ -77,7 +81,7 @@ export function ExpenseManagement() {
         title="Expense & Fund Utilisation"
         description="Track all expenses and demonstrate transparent fund utilisation."
         action={
-          <Button onClick={() => toast({ title: "Expense form opened" })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Add Expense
           </Button>
         }
@@ -121,6 +125,8 @@ export function ExpenseManagement() {
         title="All Expenses"
         onExport={() => toast({ title: "Export started", description: "Expenses exported to CSV." })}
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={EXPENSE_FORM_SCHEMA} />
+</div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Trash2, Plus, MapPin, Users, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,8 +10,11 @@ import { ACTIVITIES } from "@/lib/mock-data";
 import type { Activity } from "@/lib/types";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { ACTIVITY_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function ActivitiesManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const categories = Array.from(new Set(ACTIVITIES.map((a) => a.category)));
 
@@ -77,7 +81,7 @@ export function ActivitiesManagement() {
         title="Activities & Projects Management"
         description="Create, manage, and track all trust activities and projects."
         action={
-          <Button onClick={() => toast({ title: "Activity form opened", description: "Create new activity modal would open here." })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Add Activity
           </Button>
         }
@@ -88,9 +92,11 @@ export function ActivitiesManagement() {
         searchKeys={["name", "location"]}
         filterOptions={{ key: "category", label: "All Categories", options: categories }}
         title="All Activities"
-        onAdd={() => toast({ title: "Activity form opened", description: "Create new activity modal would open here." })}
+        onAdd={() => setFormOpen(true)}
         onExport={() => toast({ title: "Export started", description: "Activities will be exported to CSV." })}
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={ACTIVITY_FORM_SCHEMA} />
+</div>
   );
 }

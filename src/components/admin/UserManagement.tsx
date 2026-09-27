@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Plus, Trash2, Shield, ShieldCheck, UserCog, Lock, KeyRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +13,8 @@ import type { UserAccount } from "@/lib/types";
 import { Users, ShieldCheck as SC, KeyRound as KR, UserCog as UC } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { USER_FORM_SCHEMA } from "@/components/shared/form-schemas";
 const ROLE_PERMISSIONS: Record<string, { modules: string[]; description: string }> = {
   "Super Admin": {
     modules: ["All Modules", "User Management", "Audit Log", "Settings", "Backup"],
@@ -41,6 +44,7 @@ const ROLE_PERMISSIONS: Record<string, { modules: string[]; description: string 
 
 export function UserManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const columns: Column<UserAccount>[] = [
     {
@@ -99,7 +103,7 @@ export function UserManagement() {
         title="User & Role Management"
         description="Manage admin users, roles, and granular permissions."
         action={
-          <Button onClick={() => toast({ title: "User form opened" })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Add User
           </Button>
         }
@@ -144,6 +148,8 @@ export function UserManagement() {
         filterOptions={{ key: "role", label: "All Roles", options: Object.keys(ROLE_PERMISSIONS) }}
         title="Admin Users"
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={USER_FORM_SCHEMA} />
+</div>
   );
 }

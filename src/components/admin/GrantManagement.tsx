@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Plus, Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHeader, DataTable, type Column, StatCard } from "@/components/shared/data-table";
@@ -9,8 +10,11 @@ import type { Grant } from "@/lib/types";
 import { TrendingUp, Building2, CheckCircle2, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { GRANT_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function GrantManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const totalSanctioned = GRANTS.reduce((s, g) => s + g.sanctionedAmount, 0);
   const totalReceived = GRANTS.reduce((s, g) => s + g.receivedAmount, 0);
@@ -92,7 +96,7 @@ export function GrantManagement() {
         title="Grant & Funding Management"
         description="Track grants from various funding organisations with utilisation records."
         action={
-          <Button onClick={() => toast({ title: "Grant form opened" })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Add Grant
           </Button>
         }
@@ -113,6 +117,8 @@ export function GrantManagement() {
         title="All Grants"
         onExport={() => toast({ title: "Export started" })}
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={GRANT_FORM_SCHEMA} />
+</div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Trash2, Plus, Download } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,8 +12,11 @@ import type { Campaign } from "@/lib/types";
 import { Target, Heart, Users, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { CAMPAIGN_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function CampaignManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const totalRaised = CAMPAIGNS.reduce((s, c) => s + c.collectedAmount, 0);
   const activeCount = CAMPAIGNS.filter(c => c.status === "Active").length;
@@ -45,7 +49,9 @@ export function CampaignManagement() {
             </div>
             <ProgressBar value={pct} />
             <p className="text-[10px] text-muted-foreground mt-1">{pct}% funded</p>
-          </div>
+          
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={CAMPAIGN_FORM_SCHEMA} />
+</div>
         );
       },
     },
@@ -83,7 +89,7 @@ export function CampaignManagement() {
         title="Campaign Management"
         description="Create and manage fundraising campaigns with progress tracking."
         action={
-          <Button onClick={() => toast({ title: "Campaign form opened", description: "Create new campaign modal." })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> New Campaign
           </Button>
         }
@@ -102,7 +108,7 @@ export function CampaignManagement() {
         searchKeys={["title", "id"]}
         filterOptions={{ key: "status", label: "All Status", options: ["Active", "Completed", "Upcoming"] }}
         title="All Campaigns"
-        onAdd={() => toast({ title: "Campaign form opened", description: "Create new campaign modal." })}
+        onAdd={() => setFormOpen(true)}
         onExport={() => toast({ title: "Export started", description: "Campaigns exported." })}
       />
     </div>

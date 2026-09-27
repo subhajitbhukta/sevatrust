@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Plus, Building2, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -10,8 +11,11 @@ import type { CSRPartner } from "@/lib/types";
 import { Building2 as B2, HandHeart, CheckCircle2, TrendingUp } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { CSR_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function CSRManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const totalContribution = CSR_PARTNERS.reduce((s, p) => s + p.proposedContribution, 0);
 
@@ -86,7 +90,7 @@ export function CSRManagement() {
         title="CSR & Corporate Partnerships"
         description="Manage corporate partnerships, CSR proposals, and contribution tracking."
         action={
-          <Button onClick={() => toast({ title: "Partner form opened" })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Add Partner
           </Button>
         }
@@ -106,6 +110,8 @@ export function CSRManagement() {
         filterOptions={{ key: "status", label: "All Status", options: ["New", "In Discussion", "Approved", "Active", "Closed"] }}
         title="Corporate Database"
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={CSR_FORM_SCHEMA} />
+</div>
   );
 }

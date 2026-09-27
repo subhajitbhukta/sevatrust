@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Download, Plus, Receipt } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -10,8 +11,31 @@ import type { Donation } from "@/lib/types";
 import { useToast } from "@/hooks/use-toast";
 import { Heart, CheckCircle2, Clock, XCircle } from "lucide-react";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { DONATION_FORM_SCHEMA } from "@/components/shared/form-schemas";
+import { Receipt80GDialog, type Receipt80GData } from "@/components/shared/Receipt80GDialog";
 export function DonationManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
+  const [receiptData, setReceiptData] = useState<Receipt80GData | null>(null);
+
+  const openReceipt = (row: Donation) => {
+    setReceiptData({
+      receiptNo: `RCPT/${row.id}/${new Date(row.date).getFullYear()}`,
+      donorName: row.donor,
+      donorEmail: row.email,
+      donorMobile: row.mobile,
+      donorAddress: "",
+      donorPAN: "",
+      amount: row.amount,
+      purpose: row.purpose,
+      campaign: row.campaign,
+      paymentMethod: row.paymentMethod,
+      txnId: row.txnId,
+      date: row.date,
+      anonymous: row.anonymous,
+    });
+  };
 
   const total = DONATIONS.filter(d => d.status === "Successful").reduce((s, d) => s + d.amount, 0);
   const successful = DONATIONS.filter(d => d.status === "Successful").length;
@@ -78,8 +102,8 @@ export function DonationManagement() {
             variant="ghost"
             size="icon"
             className="h-8 w-8"
-            title="Download receipt"
-            onClick={() => toast({ title: "Receipt generated", description: `80G receipt for ${row.id} downloaded.` })}
+            title="View 80G Receipt"
+            onClick={() => openReceipt(row)}
           >
             <Receipt className="h-4 w-4" />
           </Button>
@@ -113,8 +137,17 @@ export function DonationManagement() {
         searchKeys={["donor", "txnId", "id"]}
         filterOptions={{ key: "status", label: "All Status", options: ["Successful", "Pending", "Failed"] }}
         title="All Donations"
+        onAdd={() => setFormOpen(true)}
+        addLabel="Record Donation"
         onExport={() => toast({ title: "Export started", description: "Donations exported to CSV." })}
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={DONATION_FORM_SCHEMA} />
+      <Receipt80GDialog
+        open={receiptData !== null}
+        onOpenChange={(o) => { if (!o) setReceiptData(null); }}
+        data={receiptData}
+      />
+</div>
   );
 }

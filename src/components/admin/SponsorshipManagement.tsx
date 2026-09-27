@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Plus, Download, Award, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -10,8 +11,11 @@ import type { Sponsorship } from "@/lib/types";
 import { HandHeart, CheckCircle2, Clock, Calendar as CalIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { SPONSORSHIP_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function SponsorshipManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const totalActive = SPONSORSHIPS.filter(s => s.status === "Active").length;
   const totalAmount = SPONSORSHIPS.filter(s => s.status === "Active").reduce((sum, s) => sum + s.amount, 0);
@@ -88,7 +92,7 @@ export function SponsorshipManagement() {
         title="Sponsorship Management"
         description="Manage recurring donations and sponsorships with payment tracking."
         action={
-          <Button onClick={() => toast({ title: "Sponsorship form opened" })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Add Sponsorship
           </Button>
         }
@@ -109,6 +113,8 @@ export function SponsorshipManagement() {
         title="All Sponsorships"
         onExport={() => toast({ title: "Export started" })}
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={SPONSORSHIP_FORM_SCHEMA} />
+</div>
   );
 }

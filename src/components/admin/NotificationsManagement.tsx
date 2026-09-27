@@ -14,6 +14,8 @@ import { PageHeader, StatCard } from "@/components/shared/data-table";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { NOTIFICATION_FORM_SCHEMA } from "@/components/shared/form-schemas";
 const NOTIFICATION_TEMPLATES = [
   {
     id: "TPL-001",
@@ -105,6 +107,7 @@ const CHANNEL_ICONS: Record<string, React.ComponentType<{ className?: string }>>
 
 export function NotificationsManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
   const [showComposer, setShowComposer] = useState(false);
   const [composer, setComposer] = useState({
     audience: "All Donors",
@@ -234,6 +237,8 @@ export function NotificationsManagement() {
           </div>
         </CardContent>
       </Card>
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={NOTIFICATION_FORM_SCHEMA} />
+</div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Trash2, Plus, Calendar, MapPin, Users, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,8 +11,11 @@ import type { EventItem } from "@/lib/types";
 import { Calendar as CalIcon, CheckCircle2, Clock, Users as UsersIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { EVENT_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function EventManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const columns: Column<EventItem>[] = [
     {
@@ -55,7 +59,9 @@ export function EventManagement() {
           <div className="min-w-[140px]">
             <p className="text-xs mb-1">{row.registered} / {row.participantLimit}</p>
             <ProgressBar value={pct} />
-          </div>
+          
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={EVENT_FORM_SCHEMA} />
+</div>
         );
       },
     },
@@ -92,7 +98,7 @@ export function EventManagement() {
         title="Event Management"
         description="Create events, manage registrations, and track attendance."
         action={
-          <Button onClick={() => toast({ title: "Event form opened" })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Create Event
           </Button>
         }

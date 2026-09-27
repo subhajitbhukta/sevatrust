@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Plus, CheckCircle2, XCircle, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -11,8 +12,11 @@ import type { Volunteer } from "@/lib/types";
 import { HandHeart, CheckCircle2 as Check, Clock, Users } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { VOLUNTEER_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function VolunteerManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const active = VOLUNTEERS.filter(v => v.status === "Active").length;
   const pending = VOLUNTEERS.filter(v => v.status === "Pending").length;
@@ -117,7 +121,7 @@ export function VolunteerManagement() {
         title="Volunteer Management"
         description="Manage volunteer registrations, approvals, assignments, and certificates."
         action={
-          <Button onClick={() => toast({ title: "Volunteer form opened" })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Add Volunteer
           </Button>
         }
@@ -137,6 +141,8 @@ export function VolunteerManagement() {
         filterOptions={{ key: "status", label: "All Status", options: ["Active", "Pending", "Inactive"] }}
         title="Volunteer Database"
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={VOLUNTEER_FORM_SCHEMA} />
+</div>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Trash2, Plus, User, Phone, FileText, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -10,8 +11,11 @@ import type { Beneficiary } from "@/lib/types";
 import { Users, Heart, Activity, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { BENEFICIARY_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function BeneficiaryManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const categories = Array.from(new Set(BENEFICIARIES.map((b) => b.category)));
 
@@ -78,7 +82,7 @@ export function BeneficiaryManagement() {
         title="Beneficiary Management"
         description="Maintain and track beneficiary records, assistance history, and follow-ups."
         action={
-          <Button onClick={() => toast({ title: "Beneficiary form opened", description: "Add new beneficiary modal would open here." })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Add Beneficiary
           </Button>
         }
@@ -111,6 +115,8 @@ export function BeneficiaryManagement() {
           </div>
         </div>
       </div>
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={BENEFICIARY_FORM_SCHEMA} />
+</div>
   );
 }

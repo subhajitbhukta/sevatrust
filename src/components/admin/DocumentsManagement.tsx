@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Download, Plus, Upload, FileText, Lock, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,8 +11,11 @@ import type { DocumentItem } from "@/lib/types";
 import { FileText as FileIcon, FolderOpen, Globe as GlobeIcon, Lock as LockIcon } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { DOCUMENT_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function DocumentsManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const categories = Array.from(new Set(DOCUMENTS.map(d => d.category)));
 
@@ -80,10 +84,10 @@ export function DocumentsManagement() {
         description="Central document repository with version control and visibility settings."
         action={
           <div className="flex gap-2">
-            <Button variant="outline" onClick={() => toast({ title: "Upload document" })}>
+            <Button variant="outline" onClick={() => setFormOpen(true)}>
               <Upload className="mr-2 h-4 w-4" /> Upload
             </Button>
-            <Button onClick={() => toast({ title: "Add document metadata" })}>
+            <Button onClick={() => setFormOpen(true)}>
               <Plus className="mr-2 h-4 w-4" /> Add Document
             </Button>
           </div>
@@ -104,6 +108,8 @@ export function DocumentsManagement() {
         filterOptions={{ key: "category", label: "All Categories", options: categories }}
         title="All Documents"
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={DOCUMENT_FORM_SCHEMA} />
+</div>
   );
 }

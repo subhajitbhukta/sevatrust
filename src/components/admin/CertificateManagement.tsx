@@ -13,8 +13,13 @@ import type { Certificate } from "@/lib/types";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { CERTIFICATE_FORM_SCHEMA } from "@/components/shared/form-schemas";
+import { CertificateDialog, type CertificateData } from "@/components/shared/CertificateDialog";
 export function CertificateManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
+  const [viewCert, setViewCert] = useState<Certificate | null>(null);
   const [verifyNo, setVerifyNo] = useState("");
   const [verifyResult, setVerifyResult] = useState<"idle" | "valid" | "invalid">("idle");
 
@@ -65,12 +70,12 @@ export function CertificateManagement() {
       header: "Actions",
       render: (row) => (
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" className="h-8 w-8"><Eye className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8"><QrCode className="h-4 w-4" /></Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => toast({ title: "Email sent", description: `Certificate emailed to ${row.recipientName}.` })}>
+          <Button variant="ghost" size="icon" className="h-8 w-8" title="View" onClick={() => setViewCert(row)}><Eye className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="icon" className="h-8 w-8" title="View QR" onClick={() => setViewCert(row)}><QrCode className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => toast({ title: "Email sent", description: `Certificate emailed to ${row.recipientName}.` })} title="Email">
             <Mail className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8"><Download className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="icon" className="h-8 w-8" title="Download PDF" onClick={() => setViewCert(row)}><Download className="h-4 w-4" /></Button>
         </div>
       ),
     },
@@ -82,7 +87,7 @@ export function CertificateManagement() {
         title="Digital Certificate Management"
         description="Generate, verify, and distribute certificates with QR verification."
         action={
-          <Button onClick={() => toast({ title: "Certificate generator opened", description: "Auto-generate with unique certificate no. and QR." })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> Generate Certificate
           </Button>
         }
@@ -156,6 +161,19 @@ export function CertificateManagement() {
         filterOptions={{ key: "recipientType", label: "All Types", options: ["Volunteer", "Donor", "Participant", "Sponsor"] }}
         title="All Certificates"
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={CERTIFICATE_FORM_SCHEMA} />
+      <CertificateDialog
+        open={viewCert !== null}
+        onOpenChange={(o) => { if (!o) setViewCert(null); }}
+        data={viewCert ? {
+          certificateNo: viewCert.certificateNo,
+          recipientName: viewCert.recipientName,
+          recipientType: viewCert.recipientType,
+          event: viewCert.event,
+          issueDate: viewCert.issueDate,
+        } : null}
+      />
+</div>
   );
 }

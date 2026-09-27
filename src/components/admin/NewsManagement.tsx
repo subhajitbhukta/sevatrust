@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Edit, Trash2, Plus, Download, User, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,8 +11,11 @@ import type { NewsItem } from "@/lib/types";
 import { Newspaper, CheckCircle2, Clock, FileText } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { NEWS_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function NewsManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const columns: Column<NewsItem>[] = [
     {
@@ -65,7 +69,7 @@ export function NewsManagement() {
         title="News & Updates Management"
         description="Publish and manage news articles, announcements, and notices."
         action={
-          <Button onClick={() => toast({ title: "Article form opened", description: "Create new article with text, images, videos, PDFs, or external links." })}>
+          <Button onClick={() => setFormOpen(true)}>
             <Plus className="mr-2 h-4 w-4" /> New Article
           </Button>
         }
@@ -85,6 +89,8 @@ export function NewsManagement() {
         filterOptions={{ key: "category", label: "All Categories", options: ["News", "Announcement", "Press Release", "Achievement", "Notice"] }}
         title="All News Articles"
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={NEWS_FORM_SCHEMA} />
+</div>
   );
 }

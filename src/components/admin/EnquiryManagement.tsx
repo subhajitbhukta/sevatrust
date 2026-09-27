@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Eye, Plus, MessageSquare, User, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,8 +12,11 @@ import type { Enquiry } from "@/lib/types";
 import { MessageSquare as MsgIcon, Clock, CheckCircle2, Users } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+import { FormDialog } from "@/components/shared/FormDialog";
+import { ENQUIRY_FORM_SCHEMA } from "@/components/shared/form-schemas";
 export function EnquiryManagement() {
   const { toast } = useToast();
+  const [formOpen, setFormOpen] = useState(false);
 
   const columns: Column<Enquiry>[] = [
     {
@@ -83,6 +87,11 @@ export function EnquiryManagement() {
       <PageHeader
         title="Enquiry & Contact Management"
         description="Manage all incoming enquiries, assign to team, and track follow-ups."
+        action={
+          <Button onClick={() => setFormOpen(true)}>
+            <Plus className="mr-2 h-4 w-4" /> Record Enquiry
+          </Button>
+        }
       />
 
       <div className="grid gap-4 grid-cols-2 md:grid-cols-4">
@@ -99,6 +108,8 @@ export function EnquiryManagement() {
         filterOptions={{ key: "status", label: "All Status", options: ["New", "In Progress", "Resolved", "Closed"] }}
         title="Enquiry Inbox"
       />
-    </div>
+    
+      <FormDialog open={formOpen} onOpenChange={setFormOpen} schema={ENQUIRY_FORM_SCHEMA} />
+</div>
   );
 }
